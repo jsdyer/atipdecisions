@@ -1,7 +1,2 @@
-// Keep transformations separate from the DOM so they can be tested directly.
-export function cleanLines(text) {
-  if (typeof text !== 'string') throw new TypeError('Expected text');
-  const lines = text.split(/\r\n|\r|\n/).map(line => line.trim()).filter(Boolean);
-  const unique = [...new Set(lines)];
-  return { text: unique.join('\n'), count: unique.length, removed: lines.length - unique.length };
-}
+import {counts} from './shared.mjs';export const present=rows=>rows;
+export function analyse(rows,state,data){const year=counts(rows,'year').sort((a,b)=>a.label.localeCompare(b.label));return{metrics:[{label:'Published decisions selected',value:rows.length,note:'Selected publications, not all complaints'},{label:'Named institutions',value:new Set(rows.map(r=>r.institution)).size,note:'Source labels retained'},{label:'Verified decision dates',value:rows.filter(r=>r.decision_date).length,note:'Other dates remain unknown'},{label:'Finding explicitly extracted',value:rows.filter(r=>r.outcome!=='Not classified from summary').length,note:'Literal summary phrases, not an inferred verdict'}],panels:[{title:'Selected publications by institution',items:counts(rows,'institution'),note:'No complaint-rate denominator is implied.'},{type:'line',title:'Published reports by listing year',items:year,note:'Listing years can differ from decision years.'},{title:'Finding labels',items:counts(rows,'outcome')}]};}

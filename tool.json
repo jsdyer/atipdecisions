@@ -1,16 +1,22 @@
 {
-  "id": "coolcode-tool-template",
-  "title": "CoolCode Tool Starter",
-  "description": "A browser-only example that trims lines and removes exact duplicates.",
-  "category": "security",
-  "tags": ["text", "lines", "duplicates"],
-  "icon": "scan-search",
-  "url": "/coolcode-tool-template/",
-  "source": "https://github.com/jsdyer/coolcode-tool-template",
+  "id": "atipdecisions",
+  "title": "ATIP Decision Lens",
+  "description": "Read the published outcomes of access complaints. Compare institutions, issues and findings while keeping the original reports close.",
+  "category": "explorers",
+  "tags": [
+    "atipdecisions",
+    "explorers",
+    "public data",
+    "history"
+  ],
+  "icon": "history",
+  "url": "/atipdecisions/",
+  "source": "https://github.com/jsdyer/atipdecisions",
   "hosting": "project",
   "access": "browser",
   "data_info": {
-    "mode": "local",
-    "detail": "The browser reads the text you paste and compares its lines."
+    "mode": "snapshot",
+    "detail": "Published Information Commissioner decisions and final reports, with visible extraction coverage.",
+    "cadence": "Weekly"
   }
 }
